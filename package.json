@@ -1,0 +1,16 @@
+{
+  "name": "sinatraShit",
+  "scripts": {
+    "start": "shotgun app.rb"
+  },
+  "dependencies": {
+    "react": "~0.13.3",
+    "underscore": "~1.8.3",
+    "backbone": "~1.2.1"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-jshint": "~1.11.0",
+    "gulp-sass": "~2.0.3"
+  }
+}
