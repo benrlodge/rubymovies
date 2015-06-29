@@ -5,7 +5,7 @@ var concat = require('gulp-concat');
  
 
 gulp.task('copy', function() {
-  gulp.src('./bower_components/bootstrap/dist/css/bootstrap.css').pipe(gulp.dest('./static/css'));
+  
   gulp.src('./node_modules/react/dist/react-with-addons.js').pipe(gulp.dest('./static/js/libs'));
   gulp.src('./node_modules/underscore/underscore.js').pipe(gulp.dest('./static/js/libs'));
   gulp.src('./node_modules/backbone/backbone.js').pipe(gulp.dest('./static/js/libs'));
@@ -20,9 +20,14 @@ gulp.task('sass', function () {
 });
  
 gulp.task('scripts', function() {
-  return gulp.src('./static_assets/js/**/*.js')
+  gulp.src('./static_assets/js/**/*.js')
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest('./static/js'));
+
+  gulp.src('./bower_components/bootstrap/dist/css/bootstrap.css')
+    .pipe(concat('vendor.css'))
+    .pipe(gulp.dest('./static/css'));
+
 });
 
 gulp.task('watch', function() {
