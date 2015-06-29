@@ -1,13 +1,9 @@
 
-define([], function () {
+define(['Router','backbone'], function (Router, Backbone) {
 
   var App = function(){
-    console.log('New App')
-  }
-
-  App.prototype = {
-
-
+    var router = new Router
+    Backbone.history.start();
   }
   
   return App;

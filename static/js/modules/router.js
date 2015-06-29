@@ -1,40 +1,28 @@
 define([
   'jquery',
   'underscore',
-  'backbone'
-], function($, _, Backbone, ProjectListView, UserListView){
+  'backbone',
+  'controllers/HomeCtrl'
+], function($, _, Backbone, HomeCtrl){
   
   var AppRouter = Backbone.Router.extend({
+    
     routes: {
       '': 'home',
+      'upcoming': 'upcoming',
       '*actions': 'defaultAction'
     },
 
     home: function(){
-      console.log('I am home!');
+      var homeCtrl = new HomeCtrl();
+    },
+
+    upcoming: function(){
+      console.log('Route: upcoming movies');
     }
 
   });
 
+  return AppRouter;
 
-
-
-
-
-//   define([
-//   'jquery',
-//   'underscore',
-//   'backbone',
-//   'views/projects/list',
-//   'views/users/list'
-// ], function($, _, Backbone, ProjectListView, UserListView){
-//   var AppRouter = Backbone.Router.extend({
-//     routes: {
-//       // Define some URL routes
-//       '/projects': 'showProjects',
-//       '/users': 'showUsers',
-
-//       // Default
-//       '*actions': 'defaultAction'
-//     }
-//   });
+})
