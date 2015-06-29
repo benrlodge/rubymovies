@@ -10,12 +10,17 @@ define([
     displayName: 'Navigation',
     
     render: function() {
-      return (
-        <ul className="nav nav-pills">
-          <li className="active"><a href="#">Home</a></li>
-          <li><a href="#upcoming">Upcoming Movies</a></li>
-          <li><a href="#theaters">In Theaters Now</a></li>
-        </ul>
+      return (      
+        <nav className="primary-nav collapse navbar-collapse">
+          <ul className="nav navbar-nav">
+            <li>
+              <a className='nav-item' href="#">Home</a>
+            </li>
+            <li>
+              <a className='nav-item' href="#movies">Movies</a>
+            </li>
+          </ul>
+        </nav>
       )
     }
   });
