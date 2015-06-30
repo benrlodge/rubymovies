@@ -14,6 +14,9 @@ body {
   font-weight: 500;
   color: #cdddeb; }
 
+.movies-nav {
+  margin-top: 25px; }
+
 .movies {
   background: #fff;
   padding: 30px 15px;

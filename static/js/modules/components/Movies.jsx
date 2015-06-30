@@ -16,9 +16,9 @@ define([
         <div>
 
           <Navigation />
-            <hr/>
             <MoviesNav
               active={this.props.type}
+              changeType={this.props.changeType}
             />
             <div className='container movies'>
               <MoviesTable />

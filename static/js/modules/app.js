@@ -2,7 +2,7 @@
 define(['Router','backbone'], function (Router, Backbone) {
 
   var App = function(){
-    var router = new Router
+    window.app.router = new Router
     Backbone.history.start();
   }
   
