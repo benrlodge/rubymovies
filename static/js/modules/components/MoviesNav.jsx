@@ -19,7 +19,6 @@ define([
     },
     
     render: function() {
-      console.log('propers for da Movies Nav: ', this.props)
       return (
         <ul className="nav nav-tabs container movies-nav">
           <li className={this.props.active === 'upcoming' ? 'active' : ''}>

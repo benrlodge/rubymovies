@@ -12,8 +12,9 @@ define([
       return (
         <div>
           <Navigation />
-          <hr/>
-          <h1>Welcome to the stupid movie app.</h1>
+          <div className='container'>
+            <h1>Welcome to this stupid movie app.</h1>
+          </div>
         </div>
       )
     }

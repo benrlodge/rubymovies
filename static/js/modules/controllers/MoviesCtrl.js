@@ -2,8 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'jsx!views/MoviesView'
-], function($, _, Backbone, MoviesView){
+  'jsx!views/MoviesView',
+  'collections/Movies'
+], function($, _, Backbone, MoviesView, MoviesCollection){
   
   var MoviesCtrl = function(options){
     this.type = options.type
@@ -11,10 +12,19 @@ define([
   }
 
   MoviesCtrl.prototype = {
+    
     init: function(){
-      console.log('show the right movies view...')
-      var view = new MoviesView({type: this.type});
+      
+      var movies = new MoviesCollection()
+      movies.type = this.type
+
+      var view = new MoviesView({
+        type: this.type,
+        movies: movies
+      });
+
     }
+
   }
 
   return MoviesCtrl;
