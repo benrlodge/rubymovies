@@ -10,6 +10,12 @@ define([
 
     displayName: 'MoviesTable',
 
+    handleSort: function(e){
+      var attribute = e.currentTarget.getAttribute('data-sort-attribute');
+      console.log('props: ', this.props);
+      this.props.sortTable(attribute);
+    },
+
     render: function() {
 
       titles = {
@@ -48,10 +54,10 @@ define([
           <table className='table table-striped movies-table'>
             <thead>
               <tr>
-                <th>Title</th>
-                <th>Release Date</th>
-                <th>Critics Score</th>
-                <th>Audience Score</th>
+                <th onClick={this.handleSort} data-sort-attribute='title'>Title</th>
+                <th onClick={this.handleSort} data-sort-attribute='release_dates.theater'>Release Date</th>
+                <th onClick={this.handleSort} data-sort-attribute='ratings.critics_score'>Critics Score</th>
+                <th onClick={this.handleSort} data-sort-attribute='ratings.audience_score'>Audience Score</th>
                 <th></th>
               </tr>
             </thead>

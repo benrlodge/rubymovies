@@ -9,9 +9,6 @@ define([
   var MoviesView = Backbone.View.extend({
 
     hasRendered: false,
-    renderAtOnce: 10,
-    rendered: 0,
-    moviesToRender: [],
 
     initialize: function(options){
       this.type = options.type
@@ -25,13 +22,18 @@ define([
 
     refresh: function(){
       this.movies.fetch().done(function(){
-        this.renderReact()
+        this.hasRendered = true;
+        setTimeout(function(){
+          this.renderReact();
+        }.bind(this), 500);
       }.bind(this))
     },
 
     changeType: function(type){
       this.type = type;
-      this.movies.type = type
+      this.movies.type = type;
+      this.hasRendered = false;
+      this.renderReact();
       this.refresh();
     },
 
@@ -41,8 +43,15 @@ define([
           type={this.type}
           changeType={this.changeType}
           movies={this.movies.toJSON()}
+          hasRendered={this.hasRendered}
+          sortTable={this.sortTable}
+
         />, document.getElementById('app')
       )
+    },
+
+    sortTable: function(attribute){
+      console.log('let us sort: ', attribute)
     }
 
   })

@@ -20,13 +20,11 @@ define([
         )
       }
 
-
     })
 
     return Movies;
 
   }
-
 
   return MoviesContainer;
 

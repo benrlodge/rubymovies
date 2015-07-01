@@ -18,7 +18,7 @@ define([
     },
 
     comparator: function(movie){
-      return movie.get('title');
+      return -movie.get('ratings').audience_score;
     },
 
     setLimit: function(limit){
