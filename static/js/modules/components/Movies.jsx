@@ -25,7 +25,6 @@ define([
               <MoviesTable 
                 active={this.props.type}
                 movies={this.props.movies}
-                renderMore={this.props.renderMore}
               />
             </div>
         </div>

@@ -18,7 +18,6 @@ define([
       this.movies = options.movies
       
       this.changeType = this.changeType.bind(this);
-      this.renderMore = this.renderMore.bind(this);
 
       this.renderReact();
       this.refresh();
@@ -36,32 +35,12 @@ define([
       this.refresh();
     },
 
-    renderMore: function(){
-      console.log('render more from MoviesView');
-      console.log('Total to show: ', this.movies.length)
-      this.rendered = this.rendered + this.renderAtOnce;
-      console.log('this rendered + renderAtOnce ', this.rendered + this.renderAtOnce);
-
-      // stop if we've reached the total
-      if( (this.rendered) >= this.movies.length){
-        return false
-      }
-
-      this.renderReact();
-    },
-
-
     renderReact: function(){
-      console.log('render react!');
-      this.moviesToRender = _.pluck(this.movies.slice(0, this.rendered + this.renderAtOnce), 'attributes');
-
-      console.log('wer are going to render: ', this.moviesToRender.length);
       React.render(
         <Movies 
           type={this.type}
           changeType={this.changeType}
-          movies={this.moviesToRender}
-          renderMore={this.renderMore}
+          movies={this.movies.toJSON()}
         />, document.getElementById('app')
       )
     }
